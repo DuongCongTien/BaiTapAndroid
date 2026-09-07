@@ -1,8 +1,9 @@
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class QuanLyDiemSinhVien {
 
-    // Nhập và kiểm tra điểm hợp lệ
     public static double nhapDiem(Scanner scanner, String tenMon) {
         double diem;
 
@@ -19,13 +20,15 @@ public class QuanLyDiemSinhVien {
                 System.out.println("Điểm phải nằm trong khoảng từ 0 đến 10.");
             } else {
                 System.out.println("Vui lòng nhập một số hợp lệ.");
-                scanner.next(); // Xóa dữ liệu nhập sai
+                scanner.next();
             }
         }
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
+        System.setErr(new PrintStream(System.err, true, StandardCharsets.UTF_8));
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
 
         System.out.print("Nhập họ và tên: ");
         String hoTen = scanner.nextLine().trim();
